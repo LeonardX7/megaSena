@@ -38,24 +38,10 @@ public class utils {
         }
     }
     
-    public int verificarDezenasSorteadas(Sheet sheet) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite as 6 dezenas separadas por espaço: ");
-        String entrada = scanner.nextLine();
-        String[] numerosStr = entrada.split(" ");
-        if (numerosStr.length != 6) {
+    public int verificarDezenasSorteadas(Sheet sheet, int[] numerosInseridos) {
+        if (numerosInseridos.length != 6) {
             System.out.println("Você deve inserir exatamente 6 dezenas.");
             return -1;
-        }
-
-        int[] numerosInseridos = new int[6];
-        for (int i = 0; i < 6; i++) {
-            try {
-                numerosInseridos[i] = Integer.parseInt(numerosStr[i]);
-            } catch (NumberFormatException e) {
-                System.out.println("Por favor, insira números válidos.");
-                return -1; 
-            }
         }
 
         for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
